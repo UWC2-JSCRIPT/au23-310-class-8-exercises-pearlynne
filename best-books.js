@@ -26,10 +26,26 @@ function getFiveBestsellers(responseJson) {
 
 	for (i = 0; i <= 5; i++) {
 		let book = responseJson.results.books[i];
-		const title = book.title;
-		const author = book.author;
-		const desc = book.description;
-		console.log(title, author, desc)
+
+		// Create Span element for title 
+		const spanTitle = document.createElement('span');
+		spanTitle.classList.add("book-title");
+		spanTitle.innerHTML = `<b>Title</b>: ${book.title} <br>`;
+
+		// Create Span element for author
+		const spanAuthor = document.createElement('span');
+		spanAuthor.setAttribute("class", "book-author");
+		spanAuthor.innerHTML = `<b>Author</b>: ${book.author}<br>`;
+
+		// Create Span element for description
+		const spanDesc = document.createElement('span');
+		spanDesc.setAttribute("class", "book-description");
+		spanDesc.innerHTML = `<b>Description</b>: ${book.description} <br>`;
+
+		// Append elements to books-container div element
+		const booksContainer = document.getElementById('books-container');
+		booksContainer.append(spanTitle, spanAuthor,spanDesc);
+
 	}
 }
 
