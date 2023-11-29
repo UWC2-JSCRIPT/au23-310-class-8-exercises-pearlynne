@@ -27,6 +27,15 @@ function getFiveBestsellers(responseJson) {
 	for (i = 0; i <= 5; i++) {
 		let book = responseJson.results.books[i];
 
+		// Create a paragraph element for each book;
+		const bookPEl = document.createElement('p');
+		bookPEl.setAttribute("class", `bestseller-${i}`);
+
+		// Create Span element to identify which bestseller 
+		const spanHeader = document.createElement('span');
+		spanHeader.setAttribute("style", 'font-weight: bold');
+		spanHeader.innerHTML = `#${i + 1} hardcover fiction bestseller<br>`;
+
 		// Create Span element for title 
 		const spanTitle = document.createElement('span');
 		spanTitle.classList.add("book-title");
@@ -42,9 +51,12 @@ function getFiveBestsellers(responseJson) {
 		spanDesc.setAttribute("class", "book-description");
 		spanDesc.innerHTML = `<b>Description</b>: ${book.description} <br>`;
 
-		// Append elements to books-container div element
+		// Append heading, title, author, descrition, and image to p element
+		bookPEl.append(spanHeader, spanTitle, spanAuthor, spanDesc);
+
+		// Append p element to books-container div element
 		const booksContainer = document.getElementById('books-container');
-		booksContainer.append(spanTitle, spanAuthor,spanDesc);
+		booksContainer.appendChild(bookPEl);
 
 	}
 }
