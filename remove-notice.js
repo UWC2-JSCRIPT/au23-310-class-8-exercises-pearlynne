@@ -5,4 +5,4 @@ const notice = document.getElementById('maintenance-notice');
 // Create setTimeOut 
 setTimeout(() => {
 	notice.remove();
-}, 5000)
+}, 5000);
