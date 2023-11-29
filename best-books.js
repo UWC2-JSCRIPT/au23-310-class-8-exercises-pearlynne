@@ -24,7 +24,12 @@ const dateEl = document.getElementById('date');
 function getFiveBestsellers(responseJson) {
 	console.log(responseJson);
 
+	const booksContainer = document.getElementById('books-container')
+	booksContainer.innerText = ""
+
 	for (i = 0; i <= 5; i++) {
+
+		// Get first 5 bestsellers 
 		let book = responseJson.results.books[i];
 
 		// Create a paragraph element for each book;
@@ -51,13 +56,16 @@ function getFiveBestsellers(responseJson) {
 		spanDesc.setAttribute("class", "book-description");
 		spanDesc.innerHTML = `<b>Description</b>: ${book.description} <br>`;
 
+		// Create image element for book image
+		const imgEl = document.createElement("img");
+		imgEl.src = `${book.book_image}`;
+
 		// Append heading, title, author, descrition, and image to p element
-		bookPEl.append(spanHeader, spanTitle, spanAuthor, spanDesc);
+		bookPEl.append(spanHeader, spanTitle, spanAuthor, spanDesc, imgEl);
 
 		// Append p element to books-container div element
 		const booksContainer = document.getElementById('books-container');
 		booksContainer.appendChild(bookPEl);
-
 	}
 }
 
