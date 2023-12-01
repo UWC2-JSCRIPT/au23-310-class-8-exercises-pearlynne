@@ -1,19 +1,3 @@
-
-// create api-key.js file with const API_KEY="your_api_key" in this same directory to use
-const BASE_URL = 'https://api.nytimes.com/svc/books/v3/lists.json';
-
-// 
-const asyncFetch = async function () {
-	try {
-		const data = await fetch(url)
-		const dataJson = await data.Json()
-		console.log("Async/Await", data)
-		console.log("Async/Await", dataJson)
-	} catch (err) {
-		console.log(err)
-	}
-}
-
 // Get elements from form 
 const formEl = document.getElementById('best-books-form');
 const yearEl = document.getElementById('year');
@@ -83,6 +67,8 @@ formEl.addEventListener('submit', function (e) {
 	const date = `${year}-${month}-${day}`
 	const name = "hardcover-fiction"
 
+	// create api-key.js file with const API_KEY="your_api_key" in this same directory to use
+	const BASE_URL = 'https://api.nytimes.com/svc/books/v3/lists.json';
 	const url = `https://api.nytimes.com/svc/books/v3/lists/${date}/${name}.json?api-key=${MY_API}`;
 
 	fetch(url)

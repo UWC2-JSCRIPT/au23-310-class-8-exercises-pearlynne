@@ -4,16 +4,6 @@ const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
 const query = "cars"
 const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${MY_API}`;
 
-const asyncFetch = async function () {
-	try {
-		const data = await fetch(url);
-		const dataJson = await data.Json();
-		console.log("Async/Await", data);
-		console.log("Async/Await", dataJson);
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 fetch(url)
 	.then(function (data) {
