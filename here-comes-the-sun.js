@@ -1,6 +1,6 @@
 
-// Initialize rgb color to zero
-let rgb = 0
+// Initialize rgb color to -1 so it starts from zero 
+let rgb = -1
 
 // Set background color to increase after every repaint
 const animate = function () {
