@@ -12,7 +12,7 @@ function getFiveBestsellers(responseJson) {
 	booksContainer.innerText = ""
 
 	// Get first 5 bestsellers 
-	for (i = 0; i <= 5; i++) {
+	for (i = 0; i < 5; i++) {
 
 		let book = responseJson.results.books[i];
 
