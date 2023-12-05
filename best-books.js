@@ -12,18 +12,19 @@ function getFiveBestsellers(responseJson) {
 	booksContainer.innerText = ""
 
 	// Get first 5 bestsellers 
+	// Already ranked in bestseller JSON list
 	for (i = 0; i < 5; i++) {
 
 		let book = responseJson.results.books[i];
 
 		// Create a paragraph element for each book
 		const bookPEl = document.createElement('p');
-		bookPEl.setAttribute("class", `bestseller-${i}`);
+		bookPEl.setAttribute("class", `bestseller-${book.rank}`);
 
 		// Create Span element to identify which bestseller 
 		const spanHeader = document.createElement('span');
 		spanHeader.setAttribute("style", 'font-weight: bold; text-decoration: underline');
-		spanHeader.innerHTML = `#${i + 1} Hardcover Fiction Bestseller<br>`;
+		spanHeader.innerHTML = `#${book.rank} Hardcover Fiction Bestseller<br>`;
 
 		// Create Span element for title 
 		const spanTitle = document.createElement('span');
